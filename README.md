@@ -12,29 +12,31 @@ This script automates availability management within a Google Calendar. It fetch
 
 ## Installation & Setup
 **1. Google API Configuration**
-       1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
-       2. Create a project and enable the **Google Calendar API**.
-       3. Create OAuth 2.0 credentials and download the 'credentials.json' file.
-       4. Run the script locally for the first time to generate a 'token.json' via browser authentication.
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
+2. Create a project and enable the **Google Calendar API**.
+3. Create OAuth 2.0 credentials and download the 'credentials.json' file.
+4. Run the script locally for the first time to generate a 'token.json' via browser authentication.
+
 **2. Local Configuration**
   Ensure the following files are present in the root directory (these are ignored by Git via '.gitignore'):
-  - 'credentials.json': Your Google API client secret.
-  - 'token.json': Your personal access token.
-  - 'calendar_id.json': Contains the ID of the target calendar.
-  - 'scrape_url.json': The source URL for web scraping.
-  - 'work_schedule.json': The team's weekly schedule.
+  - `credentials.json`: Your Google API client secret.
+  - `token.json`: Your personal access token.
+  - `calendar_id.json`: Contains the ID of the target calendar.
+  - `scrape_url.json`: The source URL for web scraping.
+  - `work_schedule.json`: The team's weekly schedule.
 **3. Work Schedule**
-  The work schedule follows this structure:
-  '''
-  {"work_schedule": {
+The work schedule follows this structure:
+```json
+{
+  "work_schedule": {
     "MAANDAG": {
       "Voormiddag": {"exp1": ["Name1"], "exp2": ["Name2"]},
-      "Namiddag":   {"exp1": ["Name1"], "exp2": ["Name2"]}
+      "Namiddag": {"exp1": ["Name1"], "exp2": ["Name2"]}
     },
     ...
-   }
-  } 
-  '''
+  }
+}
+```
 
 ## Automation with GitHub Actions
 This project is designed to run in the cloud. Sensitive information is securely stored using GitHub Secrets:
