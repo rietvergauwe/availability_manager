@@ -14,16 +14,17 @@ This script automates availability management within a Google Calendar. It fetch
 **1. Google API Configuration**
 1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
 2. Create a project and enable the **Google Calendar API**.
-3. Create OAuth 2.0 credentials and download the 'credentials.json' file.
-4. Run the script locally for the first time to generate a 'token.json' via browser authentication.
+3. Create OAuth 2.0 credentials and download the `credentials.json` file.
+4. Run the script locally for the first time to generate a `token.json` via browser authentication.
 
 **2. Local Configuration**
-  Ensure the following files are present in the root directory (these are ignored by Git via '.gitignore'):
+  Ensure the following files are present in the root directory (these are ignored by Git via `.gitignore`):
   - `credentials.json`: Your Google API client secret.
   - `token.json`: Your personal access token.
   - `calendar_id.json`: Contains the ID of the target calendar.
   - `scrape_url.json`: The source URL for web scraping.
   - `work_schedule.json`: The team's weekly schedule.
+
 **3. Work Schedule**
 The work schedule follows this structure:
 ```json
@@ -40,14 +41,12 @@ The work schedule follows this structure:
 
 ## Automation with GitHub Actions
 This project is designed to run in the cloud. Sensitive information is securely stored using GitHub Secrets:
-   - 'GOOGLE_CREDENTIALS': Content of 'credentials.json'
-   - 'GOOGLE_TOKEN': Content of 'token.json'
-   - 'GOOGLE_CALENDAR_ID': Content of 'calendar_id.json'
-   - 'SCRAPE_URL': Content of 'scrape_url.json'
-   - 'WORK_SCHEDULE': Content of 'work_schedule.json'
+   - 'GOOGLE_CREDENTIALS': Content of `credentials.json`
+   - 'GOOGLE_TOKEN': Content of `token.json`
+   - 'GOOGLE_CALENDAR_ID': Content of `calendar_id.json`
+   - 'SCRAPE_URL': Content of `scrape_url.json`
+   - 'WORK_SCHEDULE': Content of `work_schedule.json`
 
-<!-- -->
-
-The workflow (located in '.github/workflows/main.yml') reconstructs the necessary JSON files from the secrets before executing the Python script.
+The workflow (located in `.github/workflows/run_script.yml`) reconstructs the necessary JSON files from the secrets before executing the Python script.
 
 
