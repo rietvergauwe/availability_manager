@@ -41,11 +41,11 @@ The work schedule follows this structure:
 
 ## Automation with GitHub Actions
 This project is designed to run in the cloud. Sensitive information is securely stored using GitHub Secrets:
-   - 'GOOGLE_CREDENTIALS': Content of `credentials.json`
-   - 'GOOGLE_TOKEN': Content of `token.json`
-   - 'GOOGLE_CALENDAR_ID': Content of `calendar_id.json`
-   - 'SCRAPE_URL': Content of `scrape_url.json`
-   - 'WORK_SCHEDULE': Content of `work_schedule.json`
+   - `GOOGLE_CREDENTIALS`: Content of `credentials.json`
+   - `GOOGLE_TOKEN`: Content of `token.json`
+   - `GOOGLE_CALENDAR_ID`: Content of `calendar_id.json`
+   - `SCRAPE_URL`: Content of `scrape_url.json`
+   - `WORK_SCHEDULE`: Content of `work_schedule.json`
 
 The workflow (located in `.github/workflows/run_script.yml`) reconstructs the necessary JSON files from the secrets before executing the Python script.
 
