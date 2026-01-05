@@ -30,7 +30,7 @@ def load_config(env_name, file_name, key):
 SCOPES        = ["https://www.googleapis.com/auth/calendar"]
 CALENDAR_ID   = load_config("GOOGLE_CALENDAR_ID", "calendar_id.json", "calendar_id")
 URL           = load_config("SCRAPE_URL", "scrape_url.json", "url") # Configuration for adding events from web scraping
-WORK_SCHEDULE = load_config("work_schedule.json", "WORK_SCHEDULE", "work_schedule")
+WORK_SCHEDULE = load_config("WORK_SCHEDULE", "work_schedule.json", "work_schedule")
 TIMEZONE      = "Europe/Brussels"
 
 
