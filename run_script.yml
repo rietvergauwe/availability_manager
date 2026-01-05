@@ -1,0 +1,40 @@
+name: Run Daily Calendar Script
+
+on:
+  schedule:
+    - cron: '0 */2 * * *' # Every minute (minute - hour - day of the month - month - day of the week)
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create JSON files from Secrets
+        run: |
+          echo '${{ secrets.GOOGLE_CREDENTIALS }}' > credentials.json
+          echo '${{ secrets.GOOGLE_TOKEN }}' > token.json
+          echo '${{ secrets.GOOGLE_CALENDAR_ID }}' > calendar_id.json
+          echo '${{ secrets.SCRAPE_URL }}' > scrape_url.json
+          echo '${{ secrets.WORK_SCHEDULE }}' > work_schedule.json
+
+      - name: Run Python script
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+          GOOGLE_TOKEN: ${{ secrets.GOOGLE_TOKEN }}
+          GOOGLE_CALENDAR_ID: ${{ secrets.GOOGLE_CALENDAR_ID }}
+          SCRAPE_URL: ${{ secrets.SCRAPE_URL }}
+          WORK_SCHEDULE: ${{ secrets.WORK_SCHEDULE }}
+        run: python AvailabilityManager.py

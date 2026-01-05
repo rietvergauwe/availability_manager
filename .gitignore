@@ -1,0 +1,7 @@
+credentials.json
+token.json
+calendar_id.json
+scrape_url.json
+work_schedule.json
+__pycache__/
+.env
