@@ -33,6 +33,8 @@ URL           = load_config("SCRAPE_URL", "scrape_url.json", "url") # Configurat
 WORK_SCHEDULE = load_config("WORK_SCHEDULE", "work_schedule.json", "work_schedule")
 TIMEZONE      = "Europe/Brussels"
 
+# --- Days to check ---
+DAYS_TO_CHECK = 20
 
 # --- Web Scraping and Parsing Functions ---
 def scrape_events_from_web(url):
@@ -347,7 +349,7 @@ def manage_free4booking_events(service):
     }
 
     start_date = datetime.date.today()
-    end_date   = start_date + datetime.timedelta(days=20)
+    end_date   = start_date + datetime.timedelta(days=DAYS_TO_CHECK)
     
     current_date = start_date
     while current_date <= end_date:
