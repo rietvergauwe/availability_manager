@@ -368,7 +368,7 @@ def manage_free4booking_events(service):
         morning_slot_end   = local_tz.localize(datetime.datetime(current_date.year, current_date.month, current_date.day, 12, 0, 0))
         
         afternoon_slot_start = local_tz.localize(datetime.datetime(current_date.year, current_date.month, current_date.day, 13, 0, 0))
-        afternoon_slot_end   = local_tz.localize(datetime.datetime(current_date.year, current_date.month, current_date.day, 17, 0, 0))
+        afternoon_slot_end   = local_tz.localize(datetime.datetime(current_date.year, current_date.month, current_date.day, 16, 0, 0))
         
         slots_to_check = [
             (morning_slot_start, morning_slot_end, "Morning"),
