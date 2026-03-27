@@ -205,28 +205,29 @@ def check_person_availability(service, calendar_id, proposed_slot_start, propose
     # 4. Check if at least one person for each role is available
     
     # Check Role 1
-    is_exp1_available = False
-    for name in required_exp1_names:
-        if name.lower() not in booked_staff_in_slot:
-            is_exp1_available = True
-            print(f"    -> Role 1 (Exp1) covered by: {name} (Available)")
-            break
-    
-    if not is_exp1_available:
-        print(f"    -> Role 1 (Exp1) NOT covered. Required: {required_exp1_names}, Booked: {booked_staff_in_slot}")
+    is_exp1_available = True
+    if required_exp1_names:
+        is_exp1_available = False
+        for name in required_exp1_names:
+            if name.lower() not in booked_staff_in_slot:
+                is_exp1_available = True
+                print(f"    -> Role 1 (Exp1) covered by: {name} (Available)")
+                break
+        if not is_exp1_available:
+            print(f"    -> Role 1 (Exp1) NOT covered. Required: {required_exp1_names}, Booked: {booked_staff_in_slot}")
 
     # Check Role 2
-    is_exp2_available = False
-    for name in required_exp2_names:
-        if name.lower() not in booked_staff_in_slot:
-            is_exp2_available = True
-            print(f"    -> Role 2 (Exp2) covered by: {name} (Available)")
-            break
+    is_exp2_available = True
+    if required_exp2_names:
+        is_exp2_available = False
+        for name in required_exp2_names:
+            if name.lower() not in booked_staff_in_slot:
+                is_exp2_available = True
+                print(f"    -> Role 2 (Exp2) covered by: {name} (Available)")
+                break
+        if not is_exp2_available:
+            print(f"    -> Role 2 (Exp2) NOT covered. Required: {required_exp2_names}, Booked: {booked_staff_in_slot}")
 
-    if not is_exp2_available:
-        print(f"    -> Role 2 (Exp2) NOT covered. Required: {required_exp2_names}, Booked: {booked_staff_in_slot}")
-
-    # Both roles must be covered
     return is_exp1_available and is_exp2_available
 
 
