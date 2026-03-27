@@ -164,7 +164,7 @@ def check_person_availability(service, calendar_id, proposed_slot_start, propose
         print(f"    -> No schedule found for {day_name} {time_of_day}.")
         return False
 
-    if not required_exp1_names or not required_exp2_names:
+    if not required_exp1_names and not required_exp2_names:
         print(f"    -> Slot {day_name} {time_of_day} is not fully staffed in the schedule.")
         return False # Slot is not staffed (e.g., Tuesday in your schedule)
 
