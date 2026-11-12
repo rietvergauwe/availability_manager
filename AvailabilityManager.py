@@ -34,7 +34,7 @@ WORK_SCHEDULE = load_config("WORK_SCHEDULE", "work_schedule.json", "work_schedul
 TIMEZONE      = "Europe/Brussels"
 
 # --- Days to check ---
-DAYS_TO_CHECK = 14
+DAYS_TO_CHECK = 13
 
 # --- Web Scraping and Parsing Functions ---
 def scrape_events_from_web(url):
